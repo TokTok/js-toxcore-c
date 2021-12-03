@@ -1,19 +1,19 @@
+---
 on:
   push:
-    branches-ignore:
-    - 'master'
+    branches: [master]
   pull_request:
+    branches: [master]
   schedule:
   - cron: '0 4 * * *' # Run at 04:00 every day.
 
 jobs:
   build:
-
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
 
     strategy:
       matrix:
-        node-version: [8.x, 9.x, 10.x, 12.x, 13.x]
+        node-version: [10.x, 12.x, 13.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -21,7 +21,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: sudo apt-get install libopus-dev libvpx-dev
+    - run: sudo apt-get install libopus-dev libsodium-dev libvpx-dev
     - name: Set up environment variables
       run: |
         # GITHUB_ENV doesn't update the env vars in the current step, so export this one too.

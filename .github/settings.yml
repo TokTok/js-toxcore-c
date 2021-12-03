@@ -11,10 +11,6 @@ branches:
     protection:
       required_status_checks:
         contexts:
-          - Codacy/PR Quality Review
-          - DeepScan
-          - Travis CI - Pull Request
-          - code-review/reviewable
-          - codecov/patch
-          - codecov/project
-          - security/snyk (TokTok)
+          - "build"
+          - "DeepScan"
+          - "security/snyk (TokTok)"
