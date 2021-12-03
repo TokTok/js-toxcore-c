@@ -126,18 +126,19 @@ var initCallbacks = function (callback) {
         getStatus = tox.getFriendStatusAsync(e.friend()),
         getConnectionStatus = tox.getFriendConnectionStatusAsync(e.friend());
 
-      Promise.join(getName, getStatusMessage, getStatus, getConnectionStatus, function (
-        name,
-        statusMessage,
-        status,
-        connectionStatus
-      ) {
-        console.log("Friend " + e.friend() + " profile:");
-        console.log("  Name: " + name);
-        console.log("  Status message: " + statusMessage);
-        console.log("  Status: " + status);
-        console.log("  Connection status: " + connectionStatus);
-      });
+      Promise.join(
+        getName,
+        getStatusMessage,
+        getStatus,
+        getConnectionStatus,
+        function (name, statusMessage, status, connectionStatus) {
+          console.log("Friend " + e.friend() + " profile:");
+          console.log("  Name: " + name);
+          console.log("  Status message: " + statusMessage);
+          console.log("  Status: " + status);
+          console.log("  Connection status: " + connectionStatus);
+        }
+      );
     }
 
     if (e.message() === "lastonline") {
