@@ -1,7 +1,7 @@
 #load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 load("//tools/project:build_defs.bzl", "project")
 
-project()
+project(license = "gpl3-https")
 
 #exports_files(srcs = ["package.json"])
 #
