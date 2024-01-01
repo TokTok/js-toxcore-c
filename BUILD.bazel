@@ -1,13 +1,16 @@
-#load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 load("//tools/project:build_defs.bzl", "project")
 
 project(license = "gpl3-https")
 
-#exports_files(srcs = ["package.json"])
-#
-#nodejs_binary(
-#    name = "js-toxcore-c",
-#    entry_point = "lib/main.js",
-#    visibility = ["//visibility:public"],
-#    deps = ["@yarn_modules//:_all_"],
-#)
+exports_files(srcs = [
+    "package.json",
+    "package-lock.json",
+])
+
+nodejs_binary(
+    name = "js-toxcore-c",
+    data = glob(["lib/*.js"]), # + ["@npm//ref-napi"],
+    entry_point = "lib/main.js",
+    visibility = ["//visibility:public"],
+)
