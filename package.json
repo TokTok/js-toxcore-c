@@ -47,7 +47,7 @@
     "codecov": "^3.6.5",
     "grunt": "^1.1.0",
     "grunt-jsdoc": "^2.4.1",
-    "grunt-shell": "^3.0.1",
+    "grunt-shell": "^4.0.0",
     "ink-docstrap": "^1.3.2",
     "jsdoc": "^4.0.2",
     "mktemp": "^1.0.0",
