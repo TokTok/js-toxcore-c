@@ -27,7 +27,6 @@ require("buffer");
 // Helper mktemp functions
 var mktempToxSync = mktemp.createFileSync.bind(undefined, "XXXXX.tox");
 
-// @todo: Cleanup (kill tox instances afterwards)
 describe("Tox", function () {
   var tox = new Tox();
   tox.start();
@@ -41,6 +40,13 @@ describe("Tox", function () {
 
   var toxDead = new Tox();
   toxDead.free();
+
+  // Cleanup (kill tox instances afterwards)
+  after(function () {
+    tox.stop();
+    toxNoUdp.stop();
+    toxCustomPort.stop();
+  });
 
   var addressRegex = /^[0-9a-fA-F]{76}$/;
 
