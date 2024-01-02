@@ -10,7 +10,8 @@ exports_files(srcs = [
 
 nodejs_binary(
     name = "js-toxcore-c",
-    data = glob(["lib/*.js"]), # + ["@npm//ref-napi"],
+    data = glob(["lib/*.js"]),  # + ["@npm//ref-napi"],
     entry_point = "lib/main.js",
+    tags = ["no-cross"],
     visibility = ["//visibility:public"],
 )
