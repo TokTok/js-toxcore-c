@@ -36,7 +36,7 @@ describe("Tox", function () {
   toxNoUdp.start();
 
   var customPort = 33510;
-  var toxCustomPort = new Tox({ startPort: customPort, endPort: customPort });
+  var toxCustomPort = new Tox({ startPort: customPort, endPort: customPort + 100 });
   toxCustomPort.start();
 
   var toxDead = new Tox();
