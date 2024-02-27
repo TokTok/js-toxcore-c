@@ -127,7 +127,7 @@ tx.on("friendLossyPacket", function (e) {
       toxName,
       node.maintainer,
       node.address,
-      node.port,
+      node.port
     );
     console.log("... with key %s", node.key);
   });
