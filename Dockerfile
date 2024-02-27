@@ -41,4 +41,4 @@ RUN rm -rf \
  /work/js-toxcore-c*/node_modules \
  /work/js-toxcore-c*/coverage.lcov \
  /work/js-toxcore-c*/package-lock.json
-RUN diff -ru /work/js-toxcore-c /work/js-toxcore-c.orig
+RUN diff -ru /work/js-toxcore-c.orig /work/js-toxcore-c

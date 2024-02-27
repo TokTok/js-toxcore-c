@@ -1,0 +1,10 @@
+---
+restylers:
+  - prettier:
+      image: "restyled/restyler-prettier:v3.2.5-2"
+      arguments: ["--print-width=100", "--trailing-comma=es5"]
+  - clang-format:
+      include:
+        - "**/*.c*"
+        - "**/*.h*"
+  - "*"
