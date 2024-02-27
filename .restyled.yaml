@@ -1,0 +1,5 @@
+---
+restylers:
+  - prettier:
+      arguments: ["--print-width=100"]
+  - "*"
