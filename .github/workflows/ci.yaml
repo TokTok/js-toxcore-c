@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 13.x]
+        node-version: [12.x, 13.x, 20.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -47,8 +47,8 @@ jobs:
     - run: npm run doc
     - run: npm run test
     - run: npm run report-coverage
-    - run: npm run format && git diff --exit-code
-      if: ${{ matrix.node-version == '13.x' }}
+    - run: npm run format && git checkout package-lock.json && git diff --exit-code
+      if: ${{ matrix.node-version == '20.x' }}
 
   docker:
     runs-on: ubuntu-latest
