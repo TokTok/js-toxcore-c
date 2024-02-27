@@ -82,7 +82,7 @@ declare module "toxcore" {
       filepath: string,
       data: Buffer,
       pass: Buffer | string,
-      callback?: ErrorCallback
+      callback?: ErrorCallback,
     ): void;
     encryptFileSync(filepath: string, data: Buffer, pass: Buffer | string): void;
     encryptPassKey(data: Buffer, passKey: ToxPassKey, callback?: BufferCallback): void;
@@ -145,7 +145,7 @@ declare module "toxcore" {
       friendnum: number,
       filenum: number,
       control: number,
-      callback?: ErrorCallback
+      callback?: ErrorCallback,
     ): void;
     controlFileSync(friendnum: number, filenum: number, control: number | string): void;
     deleteFriend(friendnum: number, callback?: ErrorCallback): void;
@@ -233,21 +233,21 @@ declare module "toxcore" {
       filename: string,
       size: number,
       fileid: Buffer,
-      callback?: NumberCallback
+      callback?: NumberCallback,
     ): void;
     sendFileSync(
       friendnum: number,
       kind: number,
       filename: string,
       size: number,
-      fileid?: Buffer
+      fileid?: Buffer,
     ): number;
     sendFileChunk(
       friendnum: number,
       filenum: number,
       position: number,
       data: Buffer,
-      callback?: ErrorCallback
+      callback?: ErrorCallback,
     ): void;
     sendFileChunkSync(friendnum: number, filenum: number, position: number, data: Buffer): void;
     // Todo: Support more than just string 'type' for sendFriendMessage
@@ -256,7 +256,7 @@ declare module "toxcore" {
       friendnum: number,
       message: string,
       type: string,
-      callback?: NumberCallback
+      callback?: NumberCallback,
     ): void;
     sendFriendMessageSync(friendnum: number, message: string, type?: string): number;
     sendLosslessPacket(friendnum: number, data: Buffer, callback?: ErrorCallback): void;
@@ -320,7 +320,7 @@ declare module "toxcore" {
     getGroupchatPeerPublicKeyHex(
       groupnum: number,
       peernum: number,
-      callback?: StringCallback
+      callback?: StringCallback,
     ): void;
     getGroupchatPeerPublicKeyHexSync(groupnum: number, peernum: number): string;
     getGroupchatTitle(groupnum: number, callback?: StringCallback): void;

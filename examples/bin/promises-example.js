@@ -43,7 +43,7 @@ var bootstrap = function (callback) {
               " at " +
               node.address +
               ":" +
-              node.port
+              node.port,
           );
           console.log("... with key " + node.key);
           cb();
@@ -126,18 +126,19 @@ var initCallbacks = function (callback) {
         getStatus = tox.getFriendStatusAsync(e.friend()),
         getConnectionStatus = tox.getFriendConnectionStatusAsync(e.friend());
 
-      Promise.join(getName, getStatusMessage, getStatus, getConnectionStatus, function (
-        name,
-        statusMessage,
-        status,
-        connectionStatus
-      ) {
-        console.log("Friend " + e.friend() + " profile:");
-        console.log("  Name: " + name);
-        console.log("  Status message: " + statusMessage);
-        console.log("  Status: " + status);
-        console.log("  Connection status: " + connectionStatus);
-      });
+      Promise.join(
+        getName,
+        getStatusMessage,
+        getStatus,
+        getConnectionStatus,
+        function (name, statusMessage, status, connectionStatus) {
+          console.log("Friend " + e.friend() + " profile:");
+          console.log("  Name: " + name);
+          console.log("  Status message: " + statusMessage);
+          console.log("  Status: " + status);
+          console.log("  Connection status: " + connectionStatus);
+        },
+      );
     }
 
     if (e.message() === "lastonline") {
@@ -172,5 +173,5 @@ async.parallel(
       console.log("Address: " + address);
       tox.start(); // Start
     });
-  }
+  },
 );
