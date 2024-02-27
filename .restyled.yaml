@@ -1,0 +1,9 @@
+---
+restylers:
+  - prettier:
+      arguments: ["--print-width=100"]
+  - clang-format:
+      include:
+        - "**/*.c*"
+        - "**/*.h*"
+  - "*"

@@ -74,7 +74,7 @@ var nodes = [
 nodes.forEach(function (node) {
   tox.bootstrapSync(node.address, node.port, node.key);
   console.log(
-    "Successfully bootstrapped from " + node.maintainer + " at " + node.address + ":" + node.port
+    "Successfully bootstrapped from " + node.maintainer + " at " + node.address + ":" + node.port,
   );
   console.log("... with key " + node.key);
 });
@@ -134,7 +134,7 @@ tox.on("fileChunkRequest", function (e) {
       "Sending chunk (friend=%d, position=%d, size=%d)",
       e.friend(),
       e.position(),
-      data.length
+      data.length,
     );
     tox.sendFileChunkSync(e.friend(), e.file(), e.position(), data);
     //console.log('DONE (2)');

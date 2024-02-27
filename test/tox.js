@@ -98,7 +98,7 @@ describe("Tox", function () {
         it("should throw an exception", function () {
           (function () {
             tox.getFriendByPublicKeySync(fakePublicKeys[0]);
-          }.should.throw());
+          }).should.throw();
         });
 
         it("should return an exception (async)", function (done) {
@@ -113,7 +113,7 @@ describe("Tox", function () {
         it("should throw an exception", function () {
           (function () {
             tox.getFriendPublicKeySync(0);
-          }.should.throw());
+          }).should.throw();
         });
 
         it("should return an exception (async)", function (done) {
@@ -128,7 +128,7 @@ describe("Tox", function () {
         it('should throw an exception if friend doesn"t exist', function () {
           (function () {
             tox.deleteFriendSync(0);
-          }.should.throw());
+          }).should.throw();
         });
 
         it('should return an exception if friend doesn"t exist', function (done) {
@@ -158,7 +158,7 @@ describe("Tox", function () {
         var publicKey = fakePublicKeys[2];
         (function () {
           tox.getFriendByPublicKeySync(publicKey);
-        }.should.throw());
+        }).should.throw();
         // Add and try again
         var added = tox.addFriendNoRequestSync(publicKey);
         var retrieved = tox.getFriendByPublicKeySync(publicKey);
@@ -363,7 +363,7 @@ describe("Tox", function () {
     it("should throw a not-bound error if not listening on udp", function () {
       (function () {
         toxNoUdp.getUdpPortSync();
-      }.should.throw());
+      }).should.throw();
     });
 
     it("should return a not-bound error if not listening on udp (async)", function (done) {
@@ -376,7 +376,7 @@ describe("Tox", function () {
     it("should throw an error if no handle", function () {
       (function () {
         toxDead.getUdpPortSync();
-      }.should.throw());
+      }).should.throw();
     });
 
     it("should return an error if no handle (async)", function (done) {
@@ -391,7 +391,7 @@ describe("Tox", function () {
     it("should throw a not-bound error if not a tcp relay", function () {
       (function () {
         tox.getTcpPortSync();
-      }.should.throw());
+      }).should.throw();
     });
 
     it("should return a not-bound error if not a tcp relay (async)", function (done) {
@@ -502,7 +502,7 @@ describe("Tox", function () {
       // Should throw TOX_ERR_DECRYPTION_FAILED
       (function () {
         new Tox({ data: edata, pass: "notThePass" });
-      }.should.throw());
+      }).should.throw();
     });
 
     it("should not try to decrypt if no passphrase is given", function () {
@@ -512,7 +512,7 @@ describe("Tox", function () {
       // Should throw TOX_ERR_NEW_LOAD_ENCRYPTED
       (function () {
         new Tox({ data: edata });
-      }.should.throw());
+      }).should.throw();
     });
   });
 
@@ -532,7 +532,7 @@ describe("Tox", function () {
             num.should.be.a.Number;
           });
           done(err);
-        }
+        },
       );
     });
   });
@@ -563,7 +563,7 @@ describe("Tox", function () {
         function (err, results) {
           results[1].should.equal(nospam);
           done(err);
-        }
+        },
       );
     });
   });
