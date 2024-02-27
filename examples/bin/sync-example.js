@@ -32,7 +32,7 @@ var nodes = [
 nodes.forEach(function (node) {
   tox.bootstrapSync(node.address, node.port, node.key);
   console.log(
-    "Successfully bootstrapped from " + node.maintainer + " at " + node.address + ":" + node.port,
+    "Successfully bootstrapped from " + node.maintainer + " at " + node.address + ":" + node.port
   );
   console.log("... with key " + node.key);
 });
@@ -66,7 +66,7 @@ tox.on("friendConnectionStatus", function (e) {
       "] is now " +
       (e.isConnected() ? "online" : "offline") +
       ": " +
-      statusMessage,
+      statusMessage
   );
 });
 
