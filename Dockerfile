@@ -1,4 +1,4 @@
-FROM alpine:3.19.0
+FROM alpine:3.13.0
 
 RUN ["apk", "add", "--no-cache", \
  "cmake", \
@@ -27,8 +27,8 @@ RUN ["cmake", "--build", "_build", "--target", "install"]
 
 WORKDIR /work/js-toxcore-c
 COPY . /work/js-toxcore-c/
-ENV LD_LIBRARY_PATH=/usr/local/lib
-RUN ["ls", "-lh", "/usr/local/lib/libtoxcore.so.2"]
+ENV LD_LIBRARY_PATH=/usr/local/lib64
+RUN ["ls", "-lh", "/usr/local/lib64/libtoxcore.so.2"]
 RUN ["npm", "install"]
 RUN ["npm", "run", "doc"]
 RUN ["npm", "run", "test"]
