@@ -12,6 +12,9 @@ nodejs_binary(
     name = "js-toxcore-c",
     data = glob(["lib/*.js"]),  # + ["@npm//ref-napi"],
     entry_point = "lib/main.js",
-    tags = ["no-cross"],
+    tags = [
+        "javascript",
+        "no-cross",
+    ],
     visibility = ["//visibility:public"],
 )
